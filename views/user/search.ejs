@@ -1,7 +1,5 @@
 <%- include('../partials/head') %>
-
 	<body>
-		<% result.forEach((val)=> { %>
 			<div class="wrapper">
 				<%- include('../partials/header') %>
 
@@ -22,6 +20,8 @@
 							<div class="container">
 								<div class="row">
 									<div class="room-listing-style3">
+		<% result.forEach((val)=> { %>
+
 										<div class="col-md-3">
 											<div class="room-list-view">
 												<figure>
@@ -43,10 +43,12 @@
 														</h5>
 														<span>Per Month</span>
 													</div>
-													<a href=booking.php?book='.$r_id.' class="booking3">Book Now</a>
+													<a href='/booking/<%= val.r_id %>' class="booking3">Book Now</a>
 												</div>
 											</div>
 										</div>
+			<% }) %>
+
 									</div><!--room-listing-style3 end-->
 								</div>
 
@@ -199,5 +201,4 @@
 
 			<!-- Custom Js file -->
 			<script type="text/javascript" src="js/script.js"></script>
-			<% }) %>
 	</body>

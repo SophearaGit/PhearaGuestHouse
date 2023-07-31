@@ -11,6 +11,8 @@ router.get('/term', userController.getTerm);
 
 router.get('/contact', userController.getContact);
 
-router.get('/search', userController.getSearch);
+router.post('/search', userController.getSearch);
+
+router.get('/booking/:id', userController.getBooking);
 
 module.exports = router;

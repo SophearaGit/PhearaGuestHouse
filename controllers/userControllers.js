@@ -17,12 +17,25 @@ const getContact = (req, res) => {
 }
 
 const getSearch = (req, res) => {
-    let sql = 'SELECT * FROM `booking`'
-    con.query(sql, (err, result) => {
+    let sql = 'SELECT * FROM `booking` WHERE rtype = ?'
+    let mydata = [req.body.type]
+    con.query(sql, mydata, (err, result) => {
         if (err) {
             console.log(err)
         }
         res.render('user/search', {result})
+    })
+}
+
+const getBooking = (req, res) => {
+    let sql = 'SELECT * FROM `booking` WHERE r_id = ?';
+    let mydata = [ req.param.id];
+    con.query(sql,mydata,(err,result) =>{
+      if(err){
+        console.log(err);
+      }else{
+        res.render('user/booking', {result})
+      }
     })
 }
 
@@ -31,5 +44,7 @@ module.exports = {
     getAbout,
     getTerm,
     getContact,
-    getSearch
+    getSearch,
+
+    getBooking
 }
