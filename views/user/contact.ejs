@@ -1,0 +1,146 @@
+<?php
+include("connection/connect.php");
+if(isset($_POST['submit']))
+{
+	$name=$_POST['name'];
+		$email=$_POST['email'];	
+		$subject=$_POST['subject'];
+			$message=$_POST['message'];
+			
+			
+	$sql = "INSERT INTO contact(name,email,subject,message) VALUES('$name', '$email','$subject','$message')";
+	mysqli_query($db, $sql);
+	
+
+}
+
+?>
+<!DOCTYPE html>
+<html>
+
+
+<!-- head -->
+<%- include('../partials/head') %>
+
+	<body>
+
+		<div class="wrapper">
+
+			<!-- head -->
+			<%- include('../partials/header') %>
+
+
+				<div class="about-bg">
+					<div class="container">
+						<div class="rl-banner">
+							<h2>Contact Us</h2>
+							<ul></br>
+								<li><a href="#">Home</a></li>
+								<li><span class="active">Contact Us</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+
+				<section>
+					<div class="block">
+						<div class="container">
+							<div class="title f3 mg-btm-40">
+								<h3>Contact Us</h3>
+							</div><!--title end-->
+							<div class="row">
+								<div class="col-md-9">
+									<div class="contact-form no-pdd">
+										<form action='' method='post'>
+											<div class="row">
+												<div class="col-md-12">
+													<input placeholder="Your Name" type="text" name='name'>
+													<i class="fa fa-male"></i>
+												</div>
+												<div class="col-md-6">
+													<input placeholder="Email" type="text" name='email'>
+													<i class="fa fa-envelope"></i>
+												</div>
+												<div class="col-md-6">
+													<input placeholder="Subject" type="text" name='subject'>
+													<i class="fa fa-book"></i>
+												</div>
+												<div class="col-md-12">
+													<textarea placeholder="Message" name='message'></textarea>
+												</div>
+
+												<div class="col-md-12">
+													<input type='submit' name='submit' class="submit style2" />
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="conp">
+										<div class="contact-information style2">
+											<img src="http://creativethemes.us/relax/images/icon11.png" alt="">
+											<div class="cn-info">
+												<h4>Address</h4>
+												<span>Lidharhostal,<br>V.P.O lidhran dist. Jalandhar</span>
+											</div>
+										</div><!--contact-information end-->
+										<div class="contact-information style2">
+											<img src="http://creativethemes.us/relax/images/icon22.png" alt="">
+											<div class="cn-info">
+												<h4>Phone</h4>
+												<span>(+91)9878920494</span>
+											</div>
+										</div><!--contact-information end-->
+										<div class="contact-information style2">
+											<img src="http://creativethemes.us/relax/images/icon33.png" alt="">
+											<div class="cn-info">
+												<h4>Email</h4>
+												<span> Rsrs4632815@gmail.com</span>
+											</div>
+										</div><!--contact-information end-->
+										<div class="shear">
+											<h4>Social Link :</h4>
+											<ul>
+												<li><a href="#" title=""><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#" title=""><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#" title=""><i class="fa fa-google-plus"></i></a></li>
+												<li><a href="#" title=""><i class="fa fa-instagram"></i></a></li>
+												<li><a href="#" title=""><i class="fa fa-pinterest-p"></i></a></li>
+											</ul>
+										</div><!--shear end-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- head -->
+				<%- include('../partials/footer') %>
+
+
+
+
+
+
+
+
+
+		</div><!--wrapper end-->
+
+		<!-- Including Jquery Js File -->
+		<script type="text/javascript" src="http://creativethemes.us/relax/js/jquery.min.js"></script>
+		<!-- Including Bootstrap js file -->
+		<script type="text/javascript" src="http://creativethemes.us/relax/js/bootstrap.min.js"></script>
+		<!-- Custom Js file -->
+		<script type="text/javascript" src="http://creativethemes.us/relax/js/script.js"></script>
+
+
+	</body>
+
+	<!-- Mirrored from creativethemes.us/relax/reservation.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Sep 2017 15:23:47 GMT -->
+
+</html>

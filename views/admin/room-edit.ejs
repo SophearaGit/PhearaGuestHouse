@@ -1,0 +1,99 @@
+<html>
+
+<head>
+  <title>Admin</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="/admin/css/style.css" type="text/css" media="all" />
+  <style></style>
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header">
+    <div class="shell">
+      <!-- Logo + Top Nav -->
+      <div id="top">
+        <h1><a href="#">Administrator</a></h1>
+        <div id="top-navigation"> Welcome <a href="#"><strong>Administrator</strong></a> |<form action=""
+            style='float:right;' method="post"><input type="submit" name="logout" value="Logout" /></form>
+        </div>
+      </div>
+      <!-- End Logo + Top Nav -->
+      
+    </div>
+  </div>
+  <!-- End Header -->
+  <!-- Container -->
+  <div id="container">
+    <div class="shell">
+      <div class="small-nav"> <a href="#">Dashboard</a> <span>&gt;</span> My Rooms</div>
+      <br />
+      <!-- Main -->
+      <div id="main">
+        <div class="cl">&nbsp;</div>
+        <!-- Content -->
+        <div id="content">
+          <!-- Box -->
+          <div class="box">
+            <!-- Box Head -->
+            <div class="box-head">
+              <h2>EDIT THIS ROOM</h2>
+            </div>
+            <!-- End Box Head -->
+
+            <% result.forEach((val)=> { %>
+            <form action="/admin/room/edit/" method="post" enctype="multipart/form-data">
+              <!-- Form -->
+              <div class="form">
+                <p>
+                  <label>Room Image <span>(Required Field)</span></label>
+                  <input type="hidden" name="id" value="<%= val.r_id %>">
+                  <input type="hidden" name="img" value="<%= val.rimage %>">
+                  <img src="/upload/<%= val.rimage %>" alt="" style="width: 250px; height: 250px; border-radius: 35px; margin: 35px 0px 35px 0px;">
+                  <input type="file" class="field size1" name='image' value="<%= val.rimage %>"/>
+                </p>
+                <p>
+                  <label>Room Price<span>(Required Field)</span></label>
+                  <input type="text" class="field size1" name='price' value="<%= val.rprice %>"/>
+                </p>
+                <p class="inline-field">
+                  <label>Room Type</label>
+                  <select class="field size3" name='type'>
+                    <option disabled>Room Type</option>
+                    <option value="Single Room"> Single</option>
+                    <option value="Double Room">Double</option>
+                    <option value="First Room">First Room</option>
+                  </select>
+                </p>
+                <p> <span class="req">max 100 symbols</span>
+                  <label>Text <span>(Discription)</span></label>
+                  <textarea class="field size1" rows="10" cols="30" name='text'><%= val.rtext %></textarea>
+                </p>
+              </div>
+              <!-- End Form -->
+              <!-- Form Buttons -->
+              <div class="buttons">
+                <input type="submit" class="button" value="Update" name='submit' />
+              </div>
+              <!-- End Form Buttons -->
+            </form>
+            <% }) %>
+          </div>
+          <!-- End Box -->
+        </div>
+      </div>
+      <!-- End Sidebar -->
+      <div class="cl">&nbsp;</div>
+    </div>
+    <!-- Main -->
+  </div>
+  </div>
+  <!-- End Container -->
+  <!-- Footer -->
+  <div id="footer">
+    <div class="shell"> <span class="left">&copy; 2017</span> <span class="right"> Design by <a href="#">Navbro</a>
+      </span> </div>
+  </div>
+  <!-- End Footer -->
+</body>
+</html>
